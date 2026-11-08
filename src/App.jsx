@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
 import SavedArticlesPage from './pages/SavedArticlesPage';
 import { AuthProvider } from './context/AuthContext';
+import Login from './components/Login';
 
 function App() {
   return (
