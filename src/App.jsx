@@ -6,6 +6,7 @@ import SearchPage from './pages/SearchPage';
 import SavedArticlesPage from './pages/SavedArticlesPage';
 import { AuthProvider } from './context/AuthContext';
 import Login from './components/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/search" element={<SearchPage />} />
-            <Route path="/saved" element={<SavedArticlesPage />} />
+            <Route path="/saved" element={<ProtectedRoute> <SavedArticlesPage /> </ProtectedRoute>} />
             <Route path="/login" element={<Login />} />
           </Routes>
         </Layout>
