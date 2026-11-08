@@ -13,6 +13,10 @@ export function ArticlesProvider({ children }) {
     return savedArticles[user.username] || [];
   };
 
+  const getAllUserArticles = () => {
+  return savedArticles;
+};
+
   const saveArticle = (article) => {
     if (!user) return;
 
@@ -51,7 +55,8 @@ export function ArticlesProvider({ children }) {
         saveArticle,
         removeArticle,
         isArticleSaved,
-        getUserSavedArticles
+        getUserSavedArticles,
+        getAllUserArticles
       }}
     >
       {children}
