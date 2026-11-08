@@ -17,6 +17,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/saved" element={<SavedArticlesPage />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Layout>
       </BrowserRouter>

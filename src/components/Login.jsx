@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Login.css';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -12,7 +10,7 @@ function Login() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { login } = useAuth();
-  
+  useNavigate
  
 
   const handleSubmit = (e) => {
