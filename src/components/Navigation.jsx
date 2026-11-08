@@ -7,7 +7,7 @@ import Login from '../components/Login';
 
 function Navigation() {
   const location = useLocation();
-  const { savedArticles } = useArticles();
+  const { getUserSavedArticles } = useArticles();
   const { user, logout, isAuthenticated } = useAuth();
 
   return (
@@ -32,7 +32,7 @@ function Navigation() {
               to="/saved" 
               className={`nav-link ${location.pathname === '/saved' ? 'active' : ''}`}
             >
-              Saved Articles ({savedArticles.length})
+              Saved Articles ({getUserSavedArticles().length})
             </Link>
           </div>
         </div>
