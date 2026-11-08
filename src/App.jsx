@@ -4,9 +4,11 @@ import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
 import SavedArticlesPage from './pages/SavedArticlesPage';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
+    <AuthProvider>
     <ArticlesProvider>
       <BrowserRouter>
         <Layout>
@@ -18,6 +20,7 @@ function App() {
         </Layout>
       </BrowserRouter>
     </ArticlesProvider>
+    </AuthProvider>
   );
 }
 
