@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useAuth } from './AuthContext';
 
 const ArticlesContext = createContext();
@@ -6,7 +6,19 @@ const ArticlesContext = createContext();
 export function ArticlesProvider({ children }) {
   const { user } = useAuth();
 
-  const [savedArticles, setSavedArticles] = useState({});
+  const [savedArticles, setSavedArticles] = useState(() => {
+  try {
+    const storedArticles = localStorage.getItem('savedArticles');
+    return storedArticles ? JSON.parse(storedArticles) : {};
+  } catch (error) {
+    console.error('Failed to load saved articles:', error);
+    return {};
+  }
+});
+
+  useEffect(() => {
+    localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
+  }, [savedArticles]);
 
   const getUserSavedArticles = () => {
     if (!user) return [];
