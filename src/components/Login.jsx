@@ -27,7 +27,7 @@ function Login() {
     try {
       login(username, password, selectedRole);
       // Redirect to saved articles after successful login
-      navigate('/saved');
+     navigate(selectedRole === 'admin' ? '/admin' : '/saved');
     } catch (err) {
       setError('Login failed. Please try again.');
     }
