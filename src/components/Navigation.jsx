@@ -8,7 +8,7 @@ import Login from '../components/Login';
 function Navigation() {
   const location = useLocation();
   const { getUserSavedArticles } = useArticles();
-  const { user, logout, isAuthenticated } = useAuth();
+  const { user, logout, isAuthenticated, isAdmin } = useAuth();
 
   return (
     <nav>
@@ -34,6 +34,12 @@ function Navigation() {
             >
               Saved Articles ({getUserSavedArticles().length})
             </Link>
+
+            {isAdmin() && (
+            <Link
+              to="/admin"
+              className={`nav-link ${location.pathname === '/admin' ? 'active' : ''}`} > Admin </Link>
+              )}
           </div>
         </div>
         <div className="nav-user">
@@ -46,6 +52,7 @@ function Navigation() {
         <Link to="/login">Login</Link>
       )}
     </div>
+    
       </div>
     </nav>
   );
